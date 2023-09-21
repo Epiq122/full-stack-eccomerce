@@ -7,11 +7,13 @@ import { Product } from '../common/product';
   providedIn: 'root',
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:8080/api/productsgit';
+  private baseUrl = 'http://localhost:8080/api/products';
 
   constructor(private httpClient: HttpClient) {}
 
-  getProductList(): Observable<Product[]> {
+  getProductList(theCategoryId: number): Observable<Product[]> {
+    //@Todo: need to build url based category
+    
     // maps the json data from spring data rest to product array
     return this.httpClient
       .get<GetResponse>(this.baseUrl)
