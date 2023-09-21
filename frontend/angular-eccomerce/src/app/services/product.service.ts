@@ -12,11 +12,12 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
   getProductList(theCategoryId: number): Observable<Product[]> {
-    //@Todo: need to build url based category
-    
+    //need to build url based on category id
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
+
     // maps the json data from spring data rest to product array
     return this.httpClient
-      .get<GetResponse>(this.baseUrl)
+      .get<GetResponse>(searchUrl)
       .pipe(map((response) => response._embedded.products));
   }
 }
