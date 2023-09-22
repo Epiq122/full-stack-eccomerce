@@ -23,7 +23,7 @@ export class ProductListComponent {
     });
   }
 
-  private listProducts() {
+  listProducts() {
     // check if "id" parameter is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
     if (hasCategoryId) {

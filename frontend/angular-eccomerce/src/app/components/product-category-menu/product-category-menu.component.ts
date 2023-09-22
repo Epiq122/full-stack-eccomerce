@@ -16,12 +16,10 @@ export class ProductCategoryMenuComponent {
     this.listProductCategories();
   }
 
-  private listProductCategories() {
-    this.productService
-      .getProductCategories()
-      .subscribe((data: ProductCategory[]) => {
-        console.log('Product Categories=' + JSON.stringify(data));
-        this.productCategories = data;
-      });
+  listProductCategories() {
+    this.productService.getProductCategories().subscribe((data) => {
+      console.log('Product Categories=' + JSON.stringify(data));
+      this.productCategories = data;
+    });
   }
 }
