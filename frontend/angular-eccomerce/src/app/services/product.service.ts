@@ -20,6 +20,8 @@ export class ProductService {
       .get<GetResponse>(searchUrl)
       .pipe(map((response) => response._embedded.products));
   }
+
+  getProductCategories() {}
 }
 
 interface GetResponse {
